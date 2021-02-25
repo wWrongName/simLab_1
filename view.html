@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab_1</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="index.css" type="text/css"/>
+</head>
+<body style="background: #28263c;">
+    <form id="main-form">
+        <h3>Модель</h3>
+              
+        <label>Alpha</label><br>
+        <input id="alpha" class="form-control" aria-describedby="emailHelp" placeholder="0" onkeyup="controller.handleInput('alpha')"><br>
+
+        <label>Время, с</label><br>
+        <input id="time" class="form-control" aria-describedby="emailHelp" placeholder="0" onkeyup="controller.handleInput('time')"><br>
+
+        <label>Скорость, м/c</label><br>
+        <input id="velocity" class="form-control" aria-describedby="emailHelp" placeholder="0" onkeyup="controller.handleInput('velocity')"><br>
+
+        <label>x, м</label><br>
+        <div id="x"></div><br>
+
+        <label>y, м</label><br>
+        <div id="y"></div><br>
+        
+    </form>
+
+    <script src="model.js"></script>
+    <script src="controller.js"></script>
+    <script>
+        controller.prepareView();
+    </script>
+</body>
+</html>
