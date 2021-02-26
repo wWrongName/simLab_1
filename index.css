@@ -1,5 +1,6 @@
 body {
     font-family: "Bai Jamjuree", sans-serif;
+    background-color: #28263c;
     color: #2EC2A7; 
 }
 
@@ -17,10 +18,63 @@ h3 {
     width: 250px;
 }
 
-#img {
-    margin-left: 10px;
-    border-radius: 20px;
-    margin-bottom: 5px;
-    width: 480px;
-    height: auto;
+#count {
+    margin-top: 5px;
+    margin-bottom: 2px;
+    width: 100%;
+}
+
+#warning {
+    position: absolute; 
+    color:lightcoral; 
+    top: 470px;
+    left: 80px;
+}
+
+#myChart {
+    position: absolute;
+    left : 260px;
+    width: 900px !important;
+    height: 450px !important;
+}
+
+#modelChart {
+    position: absolute;
+    left: 260px;
+    top : 475px;
+    width: 900px !important;
+    height: 450px !important;
+}
+
+#delete-graph {
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+#auto-search {
+    width: 100%;
+}
+
+#scroll-table {
+    overflow: auto;
+    position: absolute;
+    text-align: center;
+    font-size: 18px;
+    color: #2EC2A7;
+    background-color: #18182a;
+    top: 490px;
+    left: 5px;
+    height: 430px;
+    width: 250px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 0;
+    left:-100px;
+    background-color: #28263c;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #2EC2A7;
 }

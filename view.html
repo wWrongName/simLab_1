@@ -7,31 +7,39 @@
     <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="index.css" type="text/css"/>
 </head>
-<body style="background: #28263c;">
+<body>
     <form id="main-form">
         <h3>Модель</h3>
               
-        <label>Alpha</label><br>
-        <input id="alpha" class="form-control" aria-describedby="emailHelp" placeholder="0" onkeyup="controller.handleInput('alpha')"><br>
+        <label>Альфа</label><br>
+        <input id="alpha" class="form-control" aria-describedby="emailHelp" placeholder="0" onkeyup="controller.handleInput('alpha')">
 
         <label>Время, с</label><br>
-        <input id="time" class="form-control" aria-describedby="emailHelp" placeholder="0" onkeyup="controller.handleInput('time')"><br>
+        <input id="time" class="form-control" aria-describedby="emailHelp" placeholder="0" onkeyup="controller.handleInput('time')">
 
         <label>Скорость, м/c</label><br>
         <input id="velocity" class="form-control" aria-describedby="emailHelp" placeholder="0" onkeyup="controller.handleInput('velocity')"><br>
 
-        <label>x, м</label><br>
-        <div id="x"></div><br>
+        <label id="x"></label><br>
 
-        <label>y, м</label><br>
-        <div id="y"></div><br>
+        <label id="y"></label>
+
+        <button id="count" title="добавить новый узел в график y(alpha)" type="button" class="btn btn-outline-success" onclick="controller.addNode()">добавить узел</button><br>
+        <button id='delete-graph' title="удалить последний элемент графика y(alpha)" type="button" class="btn btn-outline-success" onclick="controller.deleteNode()">удалить узел</button><br>
+        <button id='auto-search' title="найти такой угол alpha, чтобы мяч попадал в цель" type="button" class="btn btn-outline-success" onclick="controller.autoSearch()">поиск угла (v0=12)</button><br>
         
     </form>
+    <p id="warning"></p>
+    <canvas id="myChart"></canvas>
+    <canvas id="modelChart"></canvas>
 
+    <select multiple="" class="form-control" id="scroll-table">
+    </select>
+
+    <script src="node_modules/chart.js/dist/Chart.js"></script>
     <script src="model.js"></script>
     <script src="controller.js"></script>
-    <script>
-        controller.prepareView();
-    </script>
+    <script src="chart.js"></script>
+    <script src="modelChart.js"></script>
 </body>
 </html>
