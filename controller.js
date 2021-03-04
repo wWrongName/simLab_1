@@ -7,7 +7,7 @@ class Controller {
             return;
         } else {
             if ((new RegExp('^[0-9]+\\.?[0-9]*$')).test(newVal) && !(new RegExp('^0(0)+')).test(newVal)) {
-                model[elId] = newVal;
+                model[elId] = +newVal;
             }
         }
         model.upd();
@@ -15,7 +15,7 @@ class Controller {
     };
 
     updView () {
-        let ids = ['time', 'velocity', 'alpha'];
+        let ids = ['time', 'velocity', 'alpha', 'yOffset'];
         for (let id of ids)
             document.getElementById(id).value = model[id];
         this.updBallCoords();
@@ -38,9 +38,9 @@ class Controller {
         myChart.update();
     };
 
-    deleteNode () {
-        myChart.data.labels.pop();
-        myChart.data.datasets[0].data.pop();
+    deleteGraph () {
+        myChart.data.labels = [];
+        myChart.data.datasets[0].data = [];
         myChart.update();
     }
 
@@ -59,10 +59,15 @@ class Controller {
         table.innerHTML += `<option>${alpha}------------------${y_alpha}</option>`;
     };
 
+    puthInsideChart (alpha, yCoord) {
+            myChart.data.labels.push(alpha.toFixed(2));
+            myChart.data.datasets[0].data.push(yCoord);
+    };
+
     autoSearch () {
         let addition = 90.0;
         let target = 4;
-        model.velocity = 12;
+        // model.velocity = 12;
         model.alpha = 0;
         model.ball.clearCoords();
         this.deleteTable();
@@ -75,10 +80,14 @@ class Controller {
                 model.alpha += addition;
             model.upd();
             this.putInsideTable(model.alpha, model.ball.y);
-            myChart.data.labels.push(model.alpha);
-            myChart.data.datasets[0].data.push(model.ball.y);
-            if (addition == 0) // if something will go wrong 
-                breack;
+            this.puthInsideChart(model.alpha, model.ball.y);
+            if (addition.toFixed(2) == 0 || addition.toFixed(2) == 90) { // if something will go wrong
+                model.warn = {
+                    exist : true,
+                    text : 'недостаточная скорость'
+                };
+                break;
+            }
         }
         model.alpha = model.alpha.toFixed(2);
         myChart.update();

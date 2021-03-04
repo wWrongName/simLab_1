@@ -20,20 +20,24 @@
         <label>Скорость, м/c</label><br>
         <input id="velocity" class="form-control" aria-describedby="emailHelp" placeholder="0" onkeyup="controller.handleInput('velocity')"><br>
 
+        <label>Рост, м</label><br>
+        <input id="yOffset" class="form-control" aria-describedby="emailHelp" placeholder="0" onkeyup="controller.handleInput('yOffset')"><br>
+
         <label id="x"></label><br>
 
         <label id="y"></label>
 
         <button id="count" title="добавить новый узел в график y(alpha)" type="button" class="btn btn-outline-success" onclick="controller.addNode()">добавить узел</button><br>
-        <button id='delete-graph' title="удалить последний элемент графика y(alpha)" type="button" class="btn btn-outline-success" onclick="controller.deleteNode()">удалить узел</button><br>
-        <button id='auto-search' title="найти такой угол alpha, чтобы мяч попадал в цель" type="button" class="btn btn-outline-success" onclick="controller.autoSearch()">поиск угла (v0=12)</button><br>
-        
+        <button id='delete-graph' title="удалить график y(alpha)" type="button" class="btn btn-outline-success" onclick="controller.deleteGraph()">удалить график</button><br>
+        <button id='auto-search' title="найти такой угол alpha, чтобы мяч попадал в цель" type="button" class="btn btn-outline-success" onclick="controller.autoSearch()">поиск угла</button><br>
+    
+
     </form>
     <p id="warning"></p>
     <canvas id="myChart"></canvas>
     <canvas id="modelChart"></canvas>
 
-    <select multiple="" class="form-control" id="scroll-table">
+    <select multiple="" class="form-control" id="scroll-table" style="visibility: hidden;">
     </select>
 
     <script src="node_modules/chart.js/dist/Chart.js"></script>

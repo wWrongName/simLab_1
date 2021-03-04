@@ -26,9 +26,11 @@ h3 {
 
 #warning {
     position: absolute; 
+    text-align: center;
     color:lightcoral; 
-    top: 470px;
-    left: 80px;
+    top: 570px;
+    left: 5px;
+    width: 250px;
 }
 
 #myChart {

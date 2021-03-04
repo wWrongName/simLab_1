@@ -1,7 +1,7 @@
 {
   "name": "simSysLab1",
   "version": "1.0.0",
-  "description": "",
+  "description": "lab work",
   "main": "main.js",
   "dependencies": {
     "chart.js": "^2.9.4",
@@ -22,7 +22,7 @@
     "make": "electron-forge make"
   },
   "keywords": [],
-  "author": "",
+  "author": "wWrongName",
   "license": "ISC",
   "config": {
     "forge": {
